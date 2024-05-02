@@ -2,7 +2,7 @@ import { test, equal, notEqual, greaterThan } from "/test-helpers.js";
 
 import { fetchKey, getAIReply, callApi } from "./api-requests.js";
 
-test("Reply is responding with a string", async () => {
+await test("Reply is responding with a string", async () => {
   await fetchKey("Hello");
   let aiReply = getAIReply();
   if (
@@ -17,6 +17,10 @@ test("Reply is responding with a string", async () => {
     console.error(
       "AI reply not structured as expected: ",
       JSON.stringify(aiReply)
-    );
+    )
   }
 });
+
+await test("Website loads correctly", () => {
+  equal(document.readyState,"complete");
+})

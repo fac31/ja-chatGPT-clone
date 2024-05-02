@@ -27,8 +27,8 @@ export function greaterThan(actual, expected, message) {
   }
 }
 
-export function test(name, testFunction) {
+export async function test(name, testFunction) {
   console.group(name);
-  testFunction();
+  await testFunction();
   console.groupEnd(name);
 }
