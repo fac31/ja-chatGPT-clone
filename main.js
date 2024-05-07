@@ -6,7 +6,7 @@ const question = document.getElementById("question");
 
 async function formSubmit() {
   const userInput = document.getElementById("input").value;
-  await fetchKey();//userInput); // Ensure fetchKey resolves before proceeding
+  await fetchKey();// Ensure fetchKey resolves before proceeding
   await callApi(userInput);
   question.innerHTML = userInput; // Move this line here if you want to display the question immediately
   let aiResponse = getAIReply();

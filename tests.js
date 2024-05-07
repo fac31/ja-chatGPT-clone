@@ -1,8 +1,6 @@
 import { test, equal, notEqual, greaterThan } from "/test-helpers.js";
 
-import { fetchKey, getAIReply, callApi } from "./api-requests.js";
-
-
+import { fetchKey, getAIReply, callApi, API_KEY } from "./api-requests.js";
 
 await test("Reply is responding with a string", async () => {
   await fetchKey();
@@ -25,6 +23,11 @@ await test("Reply is responding with a string", async () => {
   }
 });
 
+await test("Fetch-Key gets API-KEY", async () =>{
+  await fetchKey();
+  equal(API_KEY.length, 51);
+});
+
 await test("Website loads correctly",() => {
    equal(document.readyState,"complete");
-})
+});
