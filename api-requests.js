@@ -10,7 +10,6 @@ export function fetchKey(userInput) {
       .then((response) => response.json())
       .then((data) => {
         API_KEY = data.OPEN_AI_KEY;
-        return callApi(userInput);
       })
       .then(() => resolve())
       .catch((e) => {

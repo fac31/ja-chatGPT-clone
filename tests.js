@@ -5,7 +5,8 @@ import { fetchKey, getAIReply, callApi } from "./api-requests.js";
 
 
 await test("Reply is responding with a string", async () => {
-  await fetchKey("Hello");
+  await fetchKey();
+  await callApi("Hello");
   let aiReply = getAIReply();
   if (
     aiReply &&
@@ -25,6 +26,5 @@ await test("Reply is responding with a string", async () => {
 });
 
 await test("Website loads correctly",() => {
-  //  If Website hasn't loaded completely after 5 seconds something is wrong
-  setTimeout(() => equal(document.readyState,"complete"),5000);
+   equal(document.readyState,"complete");
 })
