@@ -1,6 +1,6 @@
 const API_URL = "https://api.openai.com/v1/chat/completions";
 
-let API_KEY = "";
+export let API_KEY = "";
 
 let aiReply = "";
 
