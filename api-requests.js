@@ -6,7 +6,7 @@ let aiReply = "";
 
 export function fetchKey(userInput) {
   return new Promise((resolve, reject) => {
-    fetch("./config.json")
+    fetch("../config.json")
       .then((response) => response.json())
       .then((data) => {
         API_KEY = data.OPEN_AI_KEY;
