@@ -15,6 +15,7 @@ await test("Reply is responding with a string", async () => {
   ) {
     let content = aiReply.choices[0].message.content;
     equal(content, "Hello! How can I assist you today?");
+    greaterThan(content.length, 0);
   } else {
     console.error(
       "AI reply not structured as expected: ",

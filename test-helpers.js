@@ -19,10 +19,10 @@ export function notEqual(actual, expected, message) {
 }
 export function greaterThan(actual, expected, message) {
   if (actual > expected) {
-    const defaultMessage = `${expected} is greater than ${actual}`;
+    const defaultMessage = `${actual} is greater than ${expected}`;
     console.info("Pass: " + (message || defaultMessage));
   } else {
-    const defaultMessage = `${expected} is not greater than ${actual}`;
+    const defaultMessage = `${actual} is not greater than ${expected}`;
     console.error("Fail: " + (message || defaultMessage));
   }
 }
