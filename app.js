@@ -4,6 +4,8 @@ const path = require("path");
 require("dotenv").config();
 
 const app = express();
+const API_KEY = process.env.OPEN_API_KEY;
+const API_URL = "https://api.openai.com/v1/chat/completions";
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, "public")));
