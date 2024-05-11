@@ -8,7 +8,6 @@ import fetch from "node-fetch"; // This is now perfectly valid
 
 const app = express();
 const API_KEY = process.env.OPEN_AI_KEY;
-console.log("API Key :", API_KEY);
 const API_URL = "https://api.openai.com/v1/chat/completions";
 
 app.use(express.json());
