@@ -1,13 +1,14 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import fetch from "node-fetch"; // This is now perfectly valid
-import("dotenv").then((dotenv) => {
-  dotenv.config();
-});
 
 const app = express();
-const API_KEY = process.env.OPEN_API_KEY;
+const API_KEY = process.env.OPEN_AI_KEY;
+console.log("API Key :", API_KEY);
 const API_URL = "https://api.openai.com/v1/chat/completions";
 
 app.use(express.json());
@@ -34,7 +35,7 @@ app.post("/api/chat", async (req, res) => {
     const response = await fetch(API_URL, {
       method: "POST",
       headers: {
-        Authorisation: `Bearer ${API_KEY}`,
+        Authorization: `Bearer ${API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
