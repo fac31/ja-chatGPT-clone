@@ -4,11 +4,19 @@ const answer = document.getElementById("answer");
 
 const question = document.getElementById("question");
 
+const userInput = document.getElementById("input");
+
+userInput.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    formSubmit();
+  }
+});
+
 async function formSubmit() {
-  const userInput = document.getElementById("input").value;
-  question.innerHTML = userInput;
+  question.innerHTML = userInput.value;
   try {
-    const aiResponse = await callApi(userInput);
+    const aiResponse = await callApi(userInput.value);
     if (aiResponse && aiResponse.choices && aiResponse.choices.length > 0) {
       answer.innerHTML = aiResponse.choices[0].message.content;
     } else {
