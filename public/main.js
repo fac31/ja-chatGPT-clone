@@ -16,7 +16,9 @@ userInput.addEventListener("keypress", function(event) {
 async function formSubmit() {
   question.innerHTML = userInput.value;
   try {
+    answer.innerHTML = "Loading...";
     const aiResponse = await callApi(userInput.value);
+    userInput.value = "";
     if (aiResponse && aiResponse.choices && aiResponse.choices.length > 0) {
       answer.innerHTML = aiResponse.choices[0].message.content;
     } else {
