@@ -7,7 +7,7 @@ import { fileURLToPath } from "url";
 import fetch from "node-fetch"; // This is now perfectly valid
 
 const app = express();
-const API_KEY = process.env.OPEN_AI_KEY;
+export const API_KEY = process.env.OPEN_AI_KEY;
 const API_URL = "https://api.openai.com/v1/chat/completions";
 
 app.use(express.json());
@@ -52,6 +52,8 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
-});
+if (process.argv[1] === __filename) {
+  app.listen(3000, () => {
+    console.log("Server is running on port 3000");
+  });
+}

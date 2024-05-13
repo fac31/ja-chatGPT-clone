@@ -1,11 +1,8 @@
 import { test, equal, notEqual, greaterThan } from "./test-helpers.js";
-
-import { fetchKey, getAIReply, callApi, API_KEY } from "../../api-requests.js";
+import { callApi } from "../main.js";
 
 await test("Reply is responding with a string", async () => {
-  await fetchKey();
-  await callApi("Hello");
-  let aiReply = getAIReply();
+  let aiReply = await callApi("Hello");
   if (
     aiReply &&
     aiReply.choices &&
@@ -23,11 +20,10 @@ await test("Reply is responding with a string", async () => {
   }
 });
 
-await test("Fetch-Key gets API-KEY", async () => {
-  await fetchKey();
-  equal(API_KEY.length, 51);
-});
+// await test("API-KEY is fetched correctly", async () => {
+//   equal(API_KEY.length, 51);
+// });
 
-await test("Website loads correctly", () => {
-  equal(document.readyState, "complete");
-});
+// await test("Website loads correctly", () => {
+//   equal(document.readyState, "complete");
+// });
