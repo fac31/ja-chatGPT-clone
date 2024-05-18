@@ -1,6 +1,7 @@
 #environment
 config.json
 .env
+ja-chatGPT-clone.pem
 
 #terraform
 .terraform
