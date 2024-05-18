@@ -2,6 +2,19 @@
 config.json
 .env
 
+#terraform
+.terraform
+.terraformrc
+terraform.rc
+*.tfplan
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+*.tfstate
+.tfstate.
+
+
 # Logs
 logs
 *.log
