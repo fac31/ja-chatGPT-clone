@@ -13,24 +13,24 @@ userInput.addEventListener("keypress", function(event) {
   }
 });
 
-async function formSubmit() {
-  question.innerHTML = userInput.value;
+export async function formSubmit() {
+  question.textContent = userInput.value;
   try {
-    answer.innerHTML = "Loading...";
+    answer.textContent = "Loading...";
     const aiResponse = await callApi(userInput.value);
     userInput.value = "";
     if (aiResponse && aiResponse.choices && aiResponse.choices.length > 0) {
-      answer.innerHTML = aiResponse.choices[0].message.content;
+      answer.textContent = aiResponse.choices[0].message.content;
     } else {
-      answer.innerHTML = "No response or unexpeted structure from API";
+      answer.textContent = "No response or unexpeted structure from API";
     }
   } catch (error) {
-    answer.innerHTML = "Failed to get resposne: " + error.message;
+    answer.textContent = "Failed to get resposne: " + error.message;
   }
 }
 
 // call API via server side code
-async function callApi(userInput) {
+export async function callApi(userInput) {
   const response = await fetch("/api/chat", {
     method: "POST",
     headers: {
